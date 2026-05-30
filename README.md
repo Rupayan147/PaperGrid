@@ -1,552 +1,193 @@
-\# PaperGrid — Research Paper Mapper
+# PaperGrid — Research Paper Mapper
 
+<p align="center">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000" alt="React" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=fff" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=fff" alt="SQLite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=fff" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=fff" alt="Python" />
+  <img src="https://img.shields.io/badge/License-Open%20Source-0EA5E9?style=for-the-badge" alt="Open Source" />
+</p>
 
+<p align="center"><strong>PaperGrid converts research paper PDFs into structured literature survey tables.</strong></p>
 
-PaperGrid is a full-stack research productivity tool that converts research paper PDFs into structured literature survey tables.
+<p align="center">
+  A premium research workflow for uploading papers, extracting key metadata, reviewing limitations, and exporting clean survey-ready tables.
+</p>
 
+---
 
+## Preview
 
-It helps students, researchers, and academic interns upload papers, extract key metadata, analyze limitations, and export clean survey tables for reports, literature reviews, and research documentation.
+![PaperGrid Preview](frontend/src/assets/hero.png)
 
+---
 
+## Problem
 
-\---
+Literature survey work is slow, repetitive, and highly manual. Researchers often spend hours reading PDFs, copying paper details, organizing comparisons, and rebuilding the same tables over and over.
 
+---
 
+## Solution
 
-\## 🚀 Features
+PaperGrid streamlines the entire workflow:
 
+Upload PDFs → extract metadata → review and edit records → analyze limitations → export a survey table.
 
+It turns unstructured research papers into a clean, searchable, and exportable literature mapping workspace.
 
-\- Upload research paper PDFs
+---
 
-\- Extract paper text using PyMuPDF
+## Key Features
 
-\- Auto-detect:
+| Feature | What it does |
+| --- | --- |
+| PDF upload | Upload research paper PDFs directly into the workspace |
+| Metadata extraction | Detects title, year, authors, method, dataset, metrics, result, and limitation |
+| Limitation Intelligence | Captures explicit limitations and falls back to inferred limitations when needed |
+| Survey table | Displays all extracted papers in a structured literature review table |
+| Search and filter | Quickly find papers by title, method, dataset, metrics, or year |
+| Edit and delete | Manually refine extracted records when needed |
+| Detail drawer | View the full metadata for any paper in a compact side panel |
+| Export | Download the table as CSV or Excel |
 
-&#x20; - Title
+---
 
-&#x20; - Year
+## Workflow
 
-&#x20; - Authors
+```mermaid
+flowchart LR
+  A[PDF Upload] --> B[Metadata Extraction]
+  B --> C[Limitation Analysis]
+  C --> D[Survey Table]
+  D --> E[CSV / Excel Export]
+```
 
-&#x20; - Method
+---
 
-&#x20; - Dataset
+## Tech Stack
 
-&#x20; - Metrics
+| Layer | Technologies |
+| --- | --- |
+| Frontend | React, Vite, Tailwind CSS, Axios, Lucide React |
+| Backend | FastAPI, Python, PyMuPDF, SQLite, Pandas, OpenPyXL |
+| Storage | SQLite database |
+| Export | CSV and Excel |
 
-&#x20; - Result
+---
 
-&#x20; - Limitation
-
-\- Limitation Intelligence:
-
-&#x20; - Explicit limitation detection
-
-&#x20; - Inferred limitation fallback
-
-&#x20; - Limitation source badge
-
-\- Store papers in SQLite database
-
-\- View all papers in a structured literature survey table
-
-\- Search papers by title, year, method, dataset, or metrics
-
-\- Edit extracted paper details manually
-
-\- Delete papers
-
-\- Open detailed paper drawer
-
-\- Export survey table as CSV
-
-\- Export survey table as Excel
-
-\- Premium dashboard UI built with React and Tailwind CSS
-
-
-
-\---
-
-
-
-\## 🧠 Why This Project?
-
-
-
-Literature survey work is repetitive and time-consuming.  
-
-Researchers often need to read multiple papers and manually prepare tables containing methods, datasets, metrics, results, and limitations.
-
-
-
-PaperGrid simplifies this workflow by turning PDFs into structured research data.
-
-
-
-\---
-
-
-
-\## 🛠️ Tech Stack
-
-
-
-\### Frontend
-
-\- React
-
-\- Vite
-
-\- Tailwind CSS
-
-\- Axios
-
-\- Lucide React
-
-
-
-\### Backend
-
-\- FastAPI
-
-\- Python
-
-\- PyMuPDF
-
-\- SQLite
-
-\- Pandas
-
-\- OpenPyXL
-
-
-
-\---
-
-
-
-\## 📁 Project Structure
-
-
+## Project Structure
 
 ```text
-
 PaperGrid/
-
 ├── backend/
-
-│   ├── main.py
-
-│   └── papers.db
-
-│
-
+│   └── main.py
 ├── frontend/
-
 │   ├── src/
-
-│   │   ├── components/
-
-│   │   │   ├── EditPaperModal.jsx
-
-│   │   │   ├── HeroSection.jsx
-
-│   │   │   ├── PaperDetailDrawer.jsx
-
-│   │   │   ├── PaperTable.jsx
-
-│   │   │   ├── StatsCards.jsx
-
-│   │   │   ├── Toast.jsx
-
-│   │   │   ├── TopNav.jsx
-
-│   │   │   └── UploadPaper.jsx
-
-│   │   ├── App.jsx
-
-│   │   ├── index.css
-
-│   │   └── main.jsx
-
-│   │
-
-│   ├── package.json
-
-│   └── vite.config.js
-
-│
-
+│   └── package.json
 └── README.md
-
 ```
 
+---
 
+## Setup Instructions
 
-\---
-
-
-
-\## ⚙️ Setup Instructions
-
-
-
-\### 1. Clone the Repository
-
-
+### 1) Clone the repository
 
 ```bash
-
 git clone https://github.com/Rupayan147/PaperGrid.git
-
 cd PaperGrid
-
 ```
 
-
-
-\---
-
-
-
-\## Backend Setup
-
-
+### 2) Backend setup
 
 ```bash
-
 cd backend
-
 python -m venv venv
-
 ```
 
+Activate the virtual environment:
 
-
-\### Activate Virtual Environment
-
-
-
-\#### Windows PowerShell
-
-
-
-```bash
-
-.\\venv\\Scripts\\Activate.ps1
-
+```powershell
+.\venv\Scripts\Activate.ps1
 ```
 
-
-
-\#### Windows CMD
-
-
+Install dependencies:
 
 ```bash
-
-venv\\Scripts\\activate
-
-```
-
-
-
-\---
-
-
-
-\### Install Backend Dependencies
-
-
-
-```bash
-
 pip install fastapi uvicorn pymupdf pandas openpyxl python-multipart
-
 ```
 
-
-
-\---
-
-
-
-\### Run Backend Server
-
-
+Run the backend server:
 
 ```bash
-
 uvicorn main:app --reload
-
 ```
 
-
-
-Backend will run on:
-
-
+Backend URL:
 
 ```text
-
 http://localhost:8000
-
 ```
 
-
-
-\---
-
-
-
-\## Frontend Setup
-
-
+### 3) Frontend setup
 
 Open a new terminal:
 
-
-
 ```bash
-
 cd frontend
-
 npm install
-
 npm run dev
-
 ```
 
-
-
-Frontend will run on:
-
-
+Frontend URL:
 
 ```text
-
 http://localhost:5173
-
 ```
 
+### 4) Run the app
 
+Keep both terminals running. Open the frontend in your browser, upload a PDF, and start mapping papers.
 
-\---
+---
 
-
-
-\## 🔌 API Routes
-
-
+## API Endpoints
 
 | Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/` | Health/status check |
+| POST | `/upload` | Upload a PDF and extract paper data |
+| GET | `/papers` | Fetch all saved papers |
+| GET | `/papers/{paper_id}` | Fetch a single paper |
+| PUT | `/papers/{paper_id}` | Update paper details |
+| DELETE | `/papers/{paper_id}` | Delete a paper |
+| GET | `/export/csv` | Export all papers as CSV |
+| GET | `/export/excel` | Export all papers as Excel |
 
-|---|---|---|
+---
 
-| POST | `/upload` | Upload PDF and extract paper data |
+## Future Roadmap
 
-| GET | `/papers` | Get all saved papers |
+- Gemini / OpenAI-powered extraction
+- Semantic Scholar integration
+- Cross-paper limitation analysis
+- Citation graph visualization
+- Paper comparison mode
+- DOCX / PDF export
+- Research clustering and topic discovery
 
-| GET | `/papers/{paper\_id}` | Get single paper |
+---
 
-| PUT | `/papers/{paper\_id}` | Update paper details |
+## Author
 
-| DELETE | `/papers/{paper\_id}` | Delete paper |
+**Rupayan Biswas**
 
-| GET | `/export/csv` | Export papers as CSV |
+GitHub: [@Rupayan147](https://github.com/Rupayan147)
 
-| GET | `/export/excel` | Export papers as Excel |
+---
 
+## License
 
-
-\---
-
-
-
-\## 📊 Extracted Paper Fields
-
-
-
-| Field | Description |
-
-|---|---|
-
-| Title | Paper title |
-
-| Year | Publication year |
-
-| Authors | Author names |
-
-| Method | Proposed method/model |
-
-| Dataset | Dataset used |
-
-| Metrics | Evaluation metrics |
-
-| Result | Main result summary |
-
-| Limitation | Explicit or inferred limitation |
-
-| Limitation Source | Explicit / Inferred / Manual / Related Papers |
-
-
-
-\---
-
-
-
-\## 🖥️ UI Preview
-
-
-
-Add screenshots here:
-
-
-
-```text
-
-frontend/src/assets/hero.png
-
-```
-
-
-
-Recommended GitHub README screenshot format:
-
-
-
-```markdown
-
-!\[PaperGrid Dashboard](frontend/src/assets/hero.png)
-
-```
-
-
-
-\---
-
-
-
-\## 🧩 Current Extraction Logic
-
-
-
-PaperGrid currently uses rule-based extraction:
-
-
-
-\- Title from the first meaningful PDF lines
-
-\- Year using regex-based detection
-
-\- Methods from known research keywords
-
-\- Datasets from common dataset names
-
-\- Metrics from terms like PSNR, SSIM, MSE, LPIPS
-
-\- Results from performance-related sentences
-
-\- Limitations from explicit limitation keywords
-
-\- If no limitation is found, it creates an inferred limitation
-
-
-
-\---
-
-
-
-\## 🔮 Future Improvements
-
-
-
-\- AI-powered extraction using Gemini/OpenAI
-
-\- Semantic Scholar API integration
-
-\- Cross-paper limitation analysis
-
-\- Citation graph mapping
-
-\- Paper comparison view
-
-\- Auto-generated literature survey summary
-
-\- PDF annotation support
-
-\- Authentication and cloud database
-
-\- Export to DOCX/PDF
-
-\- Research topic clustering
-
-\- Duplicate paper detection
-
-
-
-\---
-
-
-
-\## 🎯 Use Cases
-
-
-
-\- Literature survey preparation
-
-\- Research internship documentation
-
-\- Academic project reports
-
-\- ML/computer vision paper comparison
-
-\- Thesis and review paper planning
-
-\- Dataset and metric tracking
-
-
-
-\---
-
-
-
-\## 👨‍💻 Author
-
-
-
-\*\*Rupayan Biswas\*\*
-
-
-
-GitHub: \[@Rupayan147](https://github.com/Rupayan147)
-
-
-
-\---
-
-
-
-\## ⭐ Project Status
-
-
-
-PaperGrid is currently an MVP.  
-
-Core PDF upload, metadata extraction, database storage, survey table, editing, search, and export features are working.
-
-
-
-\---
-
-
-
-\## 📌 License
-
-
-
-This project is open-source and available for learning, research, and portfolio use.
-
+PaperGrid is open source and available for learning, research, and portfolio use.
